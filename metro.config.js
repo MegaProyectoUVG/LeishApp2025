@@ -3,7 +3,7 @@ const defaultConfig = getDefaultConfig(__dirname);
 
 const config = {
   resolver: {
-    // Metro tratará .tflite como un asset estático
+    // Metro tratará .tflite como asset
     assetExts: [...defaultConfig.resolver.assetExts, 'tflite'],
   },
 };

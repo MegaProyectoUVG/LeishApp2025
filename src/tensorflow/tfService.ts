@@ -3,16 +3,16 @@ import {
   useTensorflowModel,
 } from 'react-native-fast-tflite';
 
-// Función para cargar el modelo FP16 al iniciar la app
+// Carga tu modelo FP16 (statically bundled in android/app/src/main/assets)
 export async function initLeishModel(): Promise<void> {
   await loadTensorflowModel(
-    require('../../android/app/src/main/assets/leish_fp16.tflite'),
+    require('../../android/app/src/main/assets/leish_cls_fp16.tflite'),
   );
 }
 
-// Hook para acceder al plugin de inferencia desde cualquier componente
+// Hook para obtener el plugin de inferencia en cualquier componente
 export function useLeishModel() {
   return useTensorflowModel(
-    require('../../android/app/src/main/assets/leish_fp16.tflite'),
+    require('../../android/app/src/main/assets/leish_cls_fp16.tflite'),
   );
 }

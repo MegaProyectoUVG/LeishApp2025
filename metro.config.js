@@ -1,11 +1,14 @@
+// metro.config.js
 const {getDefaultConfig, mergeConfig} = require('@react-native/metro-config');
-const defaultConfig = getDefaultConfig(__dirname);
 
 const config = {
   resolver: {
-    // Metro tratará .tflite como asset
-    assetExts: [...defaultConfig.resolver.assetExts, 'tflite'],
+    assetExts: [
+      'tflite',
+      // …y cualquier otra extensión que ya tuvieras
+      ...getDefaultConfig(__dirname).resolver.assetExts,
+    ],
   },
 };
 
-module.exports = mergeConfig(defaultConfig, config);
+module.exports = mergeConfig(getDefaultConfig(__dirname), config);
